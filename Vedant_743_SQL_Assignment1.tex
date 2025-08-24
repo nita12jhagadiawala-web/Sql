@@ -1,0 +1,198 @@
+\documentclass[12pt]{article}
+\usepackage{array}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{\textbf{SQL Assignment 1}}
+\author{Vedant Jhagadiawala \\ Roll No: 743}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Program 1: Online Bookstore Management}
+
+\subsection*{Query 1}
+\textbf{Problem:} Display all customers whose city name starts with 'A'.  
+
+\textbf{SQL Query:}  
+\begin{verbatim}
+SELECT * FROM Customer WHERE city LIKE 'A%';
+\end{verbatim}
+
+\textbf{Output:}
+
+\begin{tabular}{|c|c|c|}
+\hline
+customer\_id & name & city \\
+\hline
+3 & Aarav & Ahmedabad \\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\subsection*{Query 2}
+\textbf{Problem:} Retrieve all books whose titles contain the word ``The''.  
+
+\textbf{SQL Query:}  
+\begin{verbatim}
+SELECT * FROM Book WHERE title LIKE '%The%';
+\end{verbatim}
+
+\textbf{Output:}
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+book\_id & title & author & price \\
+\hline
+1 & The Silent Patient & Alex Michaelides & 360 \\
+3 & The White Tiger & Aravind Adiga & 420 \\
+6 & The Shadow Lines & Amitav Ghosh & 440 \\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\subsection*{Query 3}
+\textbf{Problem:} Display books priced between 400 and 500.  
+
+\textbf{SQL Query:}  
+\begin{verbatim}
+SELECT * FROM Book WHERE price BETWEEN 400 AND 500;
+\end{verbatim}
+
+\textbf{Output:}
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+book\_id & title & author & price \\
+\hline
+3 & The White Tiger & Aravind Adiga & 420 \\
+6 & The Shadow Lines & Amitav Ghosh & 440 \\
+\hline
+\end{tabular}
+
+\vspace{1cm}
+
+\section*{Program 2: Fitness Center Membership}
+
+\subsection*{Query 1}
+\textbf{Problem:} List classes that contain the word ``Yoga''.  
+
+\textbf{SQL Query:}  
+\begin{verbatim}
+SELECT * FROM Class WHERE class_name LIKE '%Yoga%';
+\end{verbatim}
+
+\textbf{Output:}
+
+\begin{tabular}{|c|c|c|}
+\hline
+class\_id & class\_name & trainer\_id \\
+\hline
+1 & Sunrise Yoga & 1 \\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\subsection*{Query 2}
+\textbf{Problem:} Display all members who joined after 1 March 2023.  
+
+\textbf{SQL Query:}  
+\begin{verbatim}
+SELECT * FROM Member WHERE join_date > '2023-03-01';
+\end{verbatim}
+
+\textbf{Output:}
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+member\_id & name & join\_date & city \\
+\hline
+2 & Divy & 2023-03-15 & Jaipur \\
+3 & Vedant & 2023-04-05 & Pune \\
+4 & Bhaumik & 2023-05-10 & Surat \\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\subsection*{Query 3}
+\textbf{Problem:} Display trainers whose specialization is exactly 4 characters long.  
+
+\textbf{SQL Query:}  
+\begin{verbatim}
+SELECT * FROM Trainer WHERE LENGTH(specialization) = 4;
+\end{verbatim}
+
+\textbf{Output:}
+
+\begin{tabular}{|c|c|c|}
+\hline
+trainer\_id & name & specialization \\
+\hline
+1 & Yaksh & Yoga \\
+\hline
+\end{tabular}
+
+\vspace{1cm}
+
+\section*{Program 3: Movie Rental}
+
+\subsection*{Query 1}
+\textbf{Problem:} Find customers whose name contains ``Shah''.  
+
+\textbf{SQL Query:}  
+\begin{verbatim}
+SELECT * FROM Customer WHERE name LIKE '%Shah';
+\end{verbatim}
+
+\textbf{Output:}  
+(No rows returned)
+
+\vspace{0.5cm}
+
+\subsection*{Query 2}
+\textbf{Problem:} Display movies released between 2010 and 2020.  
+
+\textbf{SQL Query:}  
+\begin{verbatim}
+SELECT * FROM Movie WHERE release_year BETWEEN 2010 AND 2020;
+\end{verbatim}
+
+\textbf{Output:}
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+movie\_id & title & genre & release\_year \\
+\hline
+2 & Inception & Sci-Fi & 2010 \\
+3 & Drishyam & Thriller & 2015 \\
+5 & Interstellar & Sci-Fi & 2014 \\
+\hline
+\end{tabular}
+
+\vspace{0.5cm}
+
+\subsection*{Query 3}
+\textbf{Problem:} Retrieve all movies with ``Sci-Fi'' genre.  
+
+\textbf{SQL Query:}  
+\begin{verbatim}
+SELECT * FROM Movie WHERE genre LIKE '%Sci-Fi%';
+\end{verbatim}
+
+\textbf{Output:}
+
+\begin{tabular}{|c|c|c|c|}
+\hline
+movie\_id & title & genre & release\_year \\
+\hline
+2 & Inception & Sci-Fi & 2010 \\
+5 & Interstellar & Sci-Fi & 2014 \\
+\hline
+\end{tabular}
+
+\end{document}
