@@ -1,12 +1,11 @@
-
 /* =========================================================
-   📘 PROGRAM 1: Online Bookstore Management
+   Online Bookstore Management
    ========================================================= */
 DROP DATABASE IF EXISTS program1;
 CREATE DATABASE program1;
 USE program1;
 
--- ---------- Schema ----------
+-- Schema
 DROP TABLE IF EXISTS OrderDetails;
 DROP TABLE IF EXISTS OrderTable;
 DROP TABLE IF EXISTS Customer;
@@ -42,7 +41,6 @@ CREATE TABLE OrderDetails (
   FOREIGN KEY (book_id) REFERENCES Book(book_id)
 );
 
-
 INSERT INTO Book (book_id, title, author, price) VALUES
   (1, 'The Silent Patient', 'Alex Michaelides', 360.00),
   (2, 'The White Tiger', 'Aravind Adiga', 420.00),
@@ -61,29 +59,23 @@ INSERT INTO OrderTable (order_id, customer_id, order_date, total_amount) VALUES
   (2, 1, '2025-08-05', NULL);
 
 INSERT INTO OrderDetails (detail_id, order_id, book_id, quantity) VALUES
-  (1, 1, 2, 1),  -- Aarav buys "The White Tiger"
-  (2, 2, 1, 1);  -- Vedant buys "The Silent Patient"
+  (1, 1, 2, 1),
+  (2, 2, 1, 1);
 
--- ---------- Assignment Queries ----------
--- Q1: Display all customers whose city name starts with 'A'
+-- Sample queries
 SELECT * FROM Customer WHERE city LIKE 'A%';
-
--- Q2: Retrieve all books whose titles contain the word 'The'
 SELECT * FROM Book WHERE title LIKE '%The%';
-
--- Q3: Display books priced between 400 and 500
 SELECT * FROM Book WHERE price BETWEEN 400 AND 500;
 
 
-
 /* =========================================================
-   🏋️ PROGRAM 2: Fitness Center Membership
+   Fitness Center Membership
    ========================================================= */
 DROP DATABASE IF EXISTS program2;
 CREATE DATABASE program2;
 USE program2;
 
--- ---------- Schema ----------
+-- Schema
 DROP TABLE IF EXISTS Membership;
 DROP TABLE IF EXISTS Class;
 DROP TABLE IF EXISTS Trainer;
@@ -120,7 +112,6 @@ CREATE TABLE Membership (
   FOREIGN KEY (class_id) REFERENCES Class(class_id)
 );
 
-
 INSERT INTO Member (member_id, name, join_date, city) VALUES
   (1, 'Divy',   '2023-03-15', 'Jaipur'),
   (2, 'Vedant', '2023-04-05', 'Pune'),
@@ -143,27 +134,20 @@ INSERT INTO Membership (membership_id, member_id, class_id, start_date, end_date
   (2, 2, 3, '2023-08-01', '2024-01-31'),
   (3, 3, 1, '2023-09-01', '2024-03-31');
 
--- ---------- Assignment Queries ----------
--- Q1: List classes that contain the word 'Yoga'
+-- Sample queries
 SELECT * FROM Class WHERE class_name LIKE '%Yoga%';
-
--- Q2: Display all members who joined after 1 March 2023
 SELECT * FROM Member WHERE join_date > '2023-03-01';
-
--- Q3: Display trainers whose specialization is exactly 4 characters long
--- (This should return the 'Yoga' specialization row.)
 SELECT * FROM Trainer WHERE LENGTH(specialization) = 4;
 
 
-
 /* =========================================================
-   🎬 PROGRAM 3: Movie Rental
+   Movie Rental
    ========================================================= */
 DROP DATABASE IF EXISTS program3;
 CREATE DATABASE program3;
 USE program3;
 
--- ---------- Schema ----------
+-- Schema
 DROP TABLE IF EXISTS RentalDetails;
 DROP TABLE IF EXISTS Rental;
 DROP TABLE IF EXISTS Customer;
@@ -198,7 +182,6 @@ CREATE TABLE RentalDetails (
   FOREIGN KEY (movie_id) REFERENCES Movie(movie_id)
 );
 
-
 INSERT INTO Movie (movie_id, title, genre, release_year) VALUES
   (1, 'Inception',    'Sci-Fi',   2010),
   (2, 'Interstellar', 'Sci-Fi',   2014),
@@ -220,12 +203,7 @@ INSERT INTO RentalDetails (rental_detail_id, rental_id, movie_id, return_date) V
   (2, 1, 3, '2025-01-12'),
   (3, 2, 2, '2025-01-13');
 
--- ---------- Assignment Queries ----------
--- Q1: Find customers whose name contains 'Shah' (expect no rows)
-SELECT * FROM Customer WHERE name LIKE '%Shah';
-
--- Q2: Display movies released between 2010 and 2020
+-- Sample queries
+SELECT * FROM Customer WHERE name LIKE '%Shah%';
 SELECT * FROM Movie WHERE release_year BETWEEN 2010 AND 2020;
-
--- Q3: Retrieve all movies with 'Sci-Fi' genre
 SELECT * FROM Movie WHERE genre LIKE '%Sci-Fi%';
